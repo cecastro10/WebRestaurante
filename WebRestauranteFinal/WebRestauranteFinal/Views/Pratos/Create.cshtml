@@ -1,0 +1,47 @@
+﻿<form name="formCreate">
+    <h3>Cadastro de Pratos</h3>
+    <hr />
+    <div ng-controller="PratoCtrl">
+
+        <div class="row">
+            <div class="col-sm-2">
+                <label ng-class="class_codigo">C&oacute;digo</label>
+                <input type="text" ng-model="prato.ID" class="form-control alter-placeholder-color" ng-disabled="true">
+            </div>
+            <div class="col-sm-4">
+                <label ng-class="class_descricao">Nome Prato</label>
+                <input type="text" ng-model="prato.Nome" class="form-control alter-placeholder-color"
+                       placeholder="Digite a nome do prato" maxlength="300">
+            </div>
+            <div class="col-sm-4">
+                <label ng-class="class_Restaurante">
+                    Restaurante
+                </label>
+                <select id="nm_restaurante" ng-model="prato.RestauranteID"
+                        class="form-control alter-placeholder-color"
+                        ng-options="restaurante.ID as restaurante.Nome for restaurante in restaurantes"
+                        title="Selecione um Restaurante" chosen
+                        data-placeholder="Selecione o restaurante" options="restaurantes"
+                        allow-single-deselect="true">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <label ng-class="class_codigo">Preço</label>
+                <input type="text" ng-model="prato.preco" class="form-control alter-placeholder-color"
+                       ui-money-mask ui-money-mask-erase="true" style="text-align:right;">
+            </div>
+        </div>
+
+        <div class="row" style="padding-left: 14px; padding-top: 10px">
+            <button type="button" class="btn btn-primary btn-mesmo-tamanho" ng-click="AddPrato()">
+                Salvar
+            </button>
+            <button type="button" class="btn btn-grey btn-mesmo-tamanho" ng-click="voltar()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</form>
+
+

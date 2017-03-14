@@ -1,0 +1,42 @@
+﻿<h3>Cadastro de Pratos</h3>
+<hr />
+<div ng-controller="PratoCtrl">
+
+    <div class="navbar-form navbar-left">
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="prato.Nome" placeholder="pesquisa">
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="pesquisar()">Pesquisar</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = '/Pratos/Create/';">Cadastrar novo prato</button>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th> </th>
+                    <th align="center"> Restaurante </th>
+                    <th align="center"> Prato </th>
+                    <th align="center"> Preço </th>
+                </tr>
+                <tr ng-repeat="item in pratos">
+                    <td data-title="'A&ccedil;&otilde;es'"
+                        class="configuracaoGrid width-acoes-grid">
+                        <div class="hidden-sm hidden-xs btn-group width-acoes-grid">
+
+                            <span ng-click="EditarPrato(item)" class="btn btn-xs btn-info">Edit</span>
+                            <span ng-click="DeletaPrato(item)" class="btn btn-xs btn-dange">Delete</span>
+
+                        </div>
+
+                    <td width="35%" class="text-left"> {{item.Restaurante.Nome }} </td>
+                    <td width="35%" class="text-left"> {{item.Nome }} </td>
+                    <td width="15%" class="text-left"> {{item.Preco | currency }} </td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
